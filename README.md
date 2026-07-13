@@ -1,4 +1,4 @@
-# InfluentLab — Academic Web Prototype
+# InfluentLab — Academic Wastewater Characterization Prototype
 
 InfluentLab is an academic and educational prototype designed to convert conventional wastewater characterization parameters — such as COD, BOD, TSS, nitrogen and phosphorus — into model-specific state variables used by IWA Activated Sludge Models (ASM).
 
