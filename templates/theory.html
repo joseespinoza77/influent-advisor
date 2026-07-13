@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría - Influent Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .theory-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+            line-height: 1.7;
+            color: #1f1f1f;
+        }
+
+        .theory-container h1 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a73e8;
+        }
+
+        .theory-container h2 {
+            font-size: 1.4rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: #1a73e8;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0.3rem;
+        }
+
+        .theory-container h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: #333;
+        }
+
+        .theory-container p {
+            margin-bottom: 1rem;
+        }
+
+        .theory-container code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .theory-container pre {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .theory-container table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .theory-container th,
+        .theory-container td {
+            border: 1px solid #e0e0e0;
+            padding: 0.5rem 0.8rem;
+            text-align: left;
+        }
+
+        .theory-container th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .theory-container tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .theory-container ul,
+        .theory-container ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .theory-container li {
+            margin-bottom: 0.3rem;
+        }
+
+        .theory-container strong {
+            font-weight: 600;
+        }
+
+        .theory-header {
+            max-width: 900px;
+            margin: 1rem auto 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theory-header button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            background: transparent;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #5f6368;
+        }
+
+        .theory-header button:hover {
+            background: #f1f3f4;
+            border-color: #bdc1c6;
+        }
+
+        .theory-footer {
+            max-width: 900px;
+            margin: 1rem auto 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #80868b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="theory-header">
+        <button onclick="window.close()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Close
+        </button>
+        <span style="color:#5f6368; font-size:0.9rem;">Influent Advisor — Theoretical Documentation</span>
+    </div>
+    <div class="theory-container">
+        {{ content | safe }}
+    </div>
+    <div class="theory-footer">
+        <p>Influent Advisor v1.0 — Generated from TEORIA_INFLUENT_ADVISOR.md</p>
+    </div>
+</body>
+
+</html>

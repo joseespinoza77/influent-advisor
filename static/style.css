@@ -1,0 +1,1092 @@
+/* ============================================================
+   Influent Advisor - GPS-X Influent Characterization Tool
+   Professional stylesheet
+   ============================================================ */
+
+/* --- CSS Variables --- */
+:root {
+    --primary: #1a73e8;
+    --primary-dark: #1557b0;
+    --primary-light: #e8f0fe;
+    --success: #188038;
+    --success-bg: #e6f4ea;
+    --warning: #f9ab00;
+    --warning-bg: #fef7e0;
+    --danger: #d93025;
+    --danger-bg: #fce8e6;
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --border: #dadce0;
+    --border-light: #e8eaed;
+    --text: #202124;
+    --text-secondary: #5f6368;
+    --text-muted: #80868b;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
+    --radius: 8px;
+    --radius-sm: 4px;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* --- Layout --- */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Header --- */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.header-brand h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-top: -2px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-large {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-ghost:hover {
+    background: var(--bg);
+    border-color: var(--text-muted);
+}
+
+/* --- Cards --- */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* --- Main Content (Index) --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 0;
+}
+
+/* --- Intro Section --- */
+.intro-section {
+    text-align: center;
+    padding: 40px 32px;
+}
+
+.intro-logo {
+    margin-bottom: 16px;
+}
+
+.intro-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.intro-description {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+}
+
+.intro-instructions {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    background: var(--bg);
+    border-radius: var(--radius);
+}
+
+.intro-instructions h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.steps-list {
+    list-style: none;
+    counter-reset: step;
+}
+
+.steps-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* --- Selection Section --- */
+.selection-section h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.selection-group {
+    margin-bottom: 24px;
+}
+
+.selection-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+
+/* --- Radio Cards --- */
+.radio-group {
+    display: flex;
+    gap: 12px;
+}
+
+.radio-card {
+    flex: 1;
+    cursor: pointer;
+}
+
+.radio-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radio-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    transition: all 0.15s ease;
+    background: var(--surface);
+}
+
+.radio-card:hover .radio-card-content {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.radio-card.selected .radio-card-content {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.radio-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.radio-card-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.radio-card.selected .radio-card-title {
+    color: var(--primary);
+}
+
+/* --- Model Select --- */
+.model-select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+    appearance: auto;
+}
+
+.model-select:hover,
+.model-select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* --- View Grid --- */
+.view-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.view-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 20px 12px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+}
+
+.view-btn:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.view-btn.selected {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.view-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.view-btn.selected .view-icon {
+    background: var(--primary-dark);
+}
+
+.view-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.view-desc {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+/* --- Info Bar --- */
+.info-bar {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    flex-wrap: wrap;
+}
+
+.info-tag {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+}
+
+/* --- Sheet Content (legacy, kept for backward compat) --- */
+.sheet-content {
+    flex: 1;
+    padding: 16px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* --- Section Headers (legacy) --- */
+.sheet-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.section-header h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.section-badge {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+/* --- Legacy Table (index page) --- */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table thead {
+    background: var(--bg);
+}
+
+.data-table th {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+}
+
+.data-table td {
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.9rem;
+}
+
+.data-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.data-table tbody tr.section-row {
+    background: var(--primary-light);
+}
+
+.data-table tbody tr.section-row td {
+    padding: 8px 16px;
+}
+
+.section-label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* --- Legacy Column Widths (index) --- */
+.col-name {
+    width: 15%;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.col-desc {
+    width: 35%;
+    color: var(--text-secondary);
+}
+
+.col-unit {
+    width: 12%;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+.col-value {
+    width: 20%;
+}
+
+/* ============================================================
+   EXCEL-LIKE 3-COLUMN LAYOUT (sheet.html)
+   Mimics the original spreadsheet:
+     Cols B-E  →  User Inputs (left)
+     Cols G-J  →  State Variables (center)
+     Cols M-P  →  Composite Variables (right)
+   ============================================================ */
+
+/* Wider container for sheet pages */
+.app-container--sheet {
+    max-width: 100%;
+    padding: 0 16px;
+}
+
+/* --- Excel Header Bar (replaces info-bar) --- */
+.excel-header-bar {
+    display: flex;
+    gap: 2px;
+    padding: 8px 0;
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 8px;
+}
+
+.excel-header-cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+}
+
+.excel-header-cell--status {
+    flex: 0 0 auto;
+    min-width: 120px;
+}
+
+.excel-header-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.excel-header-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* --- 3-Column Grid (the core Excel layout) --- */
+.excel-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    padding: 0 0 24px;
+    align-items: start;
+}
+
+/* --- Individual Panel --- */
+.excel-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: visible;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Panel header colors match Excel section colors */
+.excel-panel-header {
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--border);
+}
+
+.excel-panel-header h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.excel-panel-header--blue {
+    background: #dbeafe;
+    border-bottom-color: #93c5fd;
+}
+
+.excel-panel-header--blue h2 {
+    color: #1e40af;
+}
+
+.excel-panel-header--green {
+    background: #dcfce7;
+    border-bottom-color: #86efac;
+}
+
+.excel-panel-header--green h2 {
+    color: #166534;
+}
+
+.excel-panel-header--orange {
+    background: #fef3c7;
+    border-bottom-color: #fcd34d;
+}
+
+.excel-panel-header--orange h2 {
+    color: #92400e;
+}
+
+/* --- Excel Table --- */
+.excel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.excel-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.excel-table th {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 5px 8px;
+    text-align: left;
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+}
+
+.excel-table td {
+    padding: 3px 8px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.excel-table tbody tr:hover {
+    background: #f0f4ff;
+}
+
+/* Column definitions for excel-table */
+.et-var {
+    width: 15%;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+.et-desc {
+    width: 42%;
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.et-unit {
+    width: 13%;
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    white-space: nowrap;
+}
+
+.et-val {
+    width: 30%;
+    white-space: nowrap;
+}
+
+/* ── Excel-style column letter headers (B, C, D, E / G, H, I, J / M, N, O, P) ── */
+.excel-col-headers {
+    display: flex;
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+    padding: 0;
+}
+
+.excel-col-header {
+    flex: 1;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    border-right: 1px solid var(--border-light);
+    font-family: var(--font-mono);
+}
+
+.excel-col-header:last-child {
+    border-right: none;
+}
+
+/* ── Cell reference badge (e.g. "[J8]" next to variable name) ── */
+.cell-ref {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 0 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+/* Section header rows inside excel tables */
+.et-section-row {
+    background: var(--primary-light) !important;
+}
+
+.et-section-label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 5px 8px !important;
+}
+
+/* --- Excel Input --- */
+.excel-input {
+    width: 100%;
+    padding: 3px 6px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: #fffff8;
+    color: var(--text);
+    transition: all 0.12s ease;
+    min-width: 60px;
+}
+
+.excel-input:hover {
+    border-color: var(--primary);
+    background: #fff;
+}
+
+.excel-input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+    background: #fff;
+}
+
+.excel-input.changed {
+    border-color: var(--warning);
+    background: var(--warning-bg);
+}
+
+/* --- Composite value display (orange accent) --- */
+.value-display--composite {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+/* ── Formula Tooltip (hover on calculated values) ── */
+.has-formula {
+    position: relative;
+    cursor: help;
+}
+
+.has-formula::after {
+    content: 'fx  ' attr(data-formula);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    z-index: 100;
+    padding: 6px 10px;
+    background: #1e293b;
+    color: #e2e8f0;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.has-formula::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 16px;
+    z-index: 101;
+    border: 5px solid transparent;
+    border-top-color: #1e293b;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.has-formula:hover::after,
+.has-formula:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Input Fields --- */
+.value-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    transition: all 0.15s ease;
+    min-width: 80px;
+}
+
+.value-input:hover {
+    border-color: var(--primary);
+}
+
+.value-input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    background: white;
+}
+
+.value-input.changed {
+    border-color: var(--warning);
+    background: var(--warning-bg);
+}
+
+/* --- State Value Display --- */
+.state-value {
+    display: block;
+}
+
+.value-display {
+    display: inline-block;
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--success);
+    background: var(--success-bg);
+    border-radius: var(--radius-sm);
+    min-width: 60px;
+}
+
+.value-display.highlight {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        background: #ceead6;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* --- Status Toast --- */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
+    background: var(--text);
+    color: white;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success {
+    background: var(--success);
+}
+
+.toast.error {
+    background: var(--danger);
+}
+
+/* --- Footer --- */
+.app-footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.footer-tech {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    margin-top: 2px;
+}
+
+/* --- Loading Spinner --- */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 1400px) {
+    .excel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .excel-panel--composites {
+        grid-column: 1 / -1;
+    }
+
+    .et-desc {
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .excel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .excel-panel--composites {
+        grid-column: auto;
+    }
+
+    .excel-header-bar {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0 12px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .view-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .radio-group {
+        flex-direction: column;
+    }
+
+    .intro-title {
+        font-size: 1.4rem;
+    }
+
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .col-desc,
+    .et-desc {
+        display: none;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px 10px;
+    }
+
+    .et-var {
+        width: 25%;
+    }
+
+    .et-unit {
+        width: 20%;
+    }
+
+    .et-val {
+        width: 55%;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .col-unit,
+    .et-unit {
+        display: none;
+    }
+
+    .et-var {
+        width: 30%;
+    }
+
+    .et-val {
+        width: 70%;
+    }
+}

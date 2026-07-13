@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influent Advisor - GPS-X Influent Characterization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <h1>Influent Advisor</h1>
+                <span class="header-subtitle">GPS-X Influent Characterization Tool v1.0</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Intro Section -->
+            <section class="intro-section card">
+                <div class="intro-logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 40 40" width="60" height="60">
+                            <rect x="2" y="2" width="36" height="36" rx="4" fill="#1a73e8" opacity="0.1" />
+                            <text x="20" y="28" text-anchor="middle" font-size="22" font-weight="bold"
+                                fill="#1a73e8">IA</text>
+                        </svg>
+                    </div>
+                </div>
+                <h2 class="intro-title">Influent Wastewater Characterization</h2>
+                <p class="intro-description">
+                    Convert raw wastewater parameters (COD, BOD, TSS, N, P) into
+                    model-specific state variables for GPS-X simulations.
+                </p>
+                <div class="intro-instructions">
+                    <h3>How to use</h3>
+                    <ol class="steps-list">
+                        <li><span class="step-num">1</span> Select <strong>Library</strong> (CN or CNP)</li>
+                        <li><span class="step-num">2</span> Choose your <strong>Biological Model</strong></li>
+                        <li><span class="step-num">3</span> Select an <strong>Influent Model</strong> view</li>
+                        <li><span class="step-num">4</span> Enter your laboratory parameters and copy the calculated
+                            state variables</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Selection Section -->
+            <section class="selection-section card">
+                <h2>Configuration</h2>
+
+                <!-- Library Selection -->
+                <div class="selection-group">
+                    <label class="selection-label">Library</label>
+                    <div class="radio-group" id="library-group">
+                        <label class="radio-card selected" data-value="CN">
+                            <input type="radio" name="library" value="CN" checked>
+                            <span class="radio-card-content">
+                                <span class="radio-card-title">CN</span>
+                                <span class="radio-card-desc">Carbon / Nitrogen</span>
+                            </span>
+                        </label>
+                        <label class="radio-card" data-value="CNP">
+                            <input type="radio" name="library" value="CNP">
+                            <span class="radio-card-content">
+                                <span class="radio-card-title">CNP</span>
+                                <span class="radio-card-desc">Carbon / Nitrogen / Phosphorus</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Model Selection -->
+                <div class="selection-group">
+                    <label class="selection-label">Biological Model</label>
+                    <select id="model-select" class="model-select">
+                        {% for model in models %}
+                        <option value="{{ model }}">{{ model }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- View Selection -->
+                <div class="selection-group">
+                    <label class="selection-label">Influent Model View</label>
+                    <div class="view-grid" id="view-group">
+                        <button class="view-btn selected" data-view="States">
+                            <span class="view-icon">S</span>
+                            <span class="view-label">States</span>
+                            <span class="view-desc">Direct state variable entry</span>
+                        </button>
+                        <button class="view-btn" data-view="BODbased">
+                            <span class="view-icon">B</span>
+                            <span class="view-label">BOD-based</span>
+                            <span class="view-desc">From BOD, TKN, x</span>
+                        </button>
+                        <button class="view-btn" data-view="TSSCOD">
+                            <span class="view-icon">T</span>
+                            <span class="view-label">TSS/COD</span>
+                            <span class="view-desc">From TSS, COD, fractions</span>
+                        </button>
+                        <button class="view-btn" data-view="CODfr">
+                            <span class="view-icon">C</span>
+                            <span class="view-label">COD Fractions</span>
+                            <span class="view-desc">From COD with fractions</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Go Button -->
+                <button id="go-btn" class="btn-primary btn-large">
+                    <span>Open Sheet</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Influent Advisor v1.0 &mdash; Migrated from Influent_Advisor_v2.xlsm</p>
+            <p class="footer-tech">Built with Flask &middot; Client-side calculation engine</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Radio card selection
+            document.querySelectorAll('.radio-card').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    document.querySelectorAll('.radio-card').forEach(function (c) {
+                        c.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    this.querySelector('input[type="radio"]').checked = true;
+                });
+            });
+
+            // View button selection
+            document.querySelectorAll('.view-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.view-btn').forEach(function (b) {
+                        b.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                });
+            });
+
+            // Go button
+            document.getElementById('go-btn').addEventListener('click', function () {
+                var lib = document.querySelector('input[name="library"]:checked').value;
+                var model = document.getElementById('model-select').value;
+                var view = document.querySelector('.view-btn.selected').dataset.view;
+                window.location.href = '/sheet?lib=' + encodeURIComponent(lib) +
+                    '&model=' + encodeURIComponent(model) +
+                    '&view=' + encodeURIComponent(view);
+            });
+        });
+    </script>
+</body>
+
+</html>

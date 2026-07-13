@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ sheet_name }} - Influent Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app-container app-container--sheet">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <h1>Influent Advisor</h1>
+                <span class="header-subtitle">{{ sheet_name }}</span>
+            </div>
+            <div class="header-nav">
+                <button id="back-btn" class="btn-ghost" onclick="window.location.href='/'">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Back
+                </button>
+                <button id="theory-btn" class="btn-ghost" onclick="window.open('/theory','_blank')">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M8 5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <circle cx="8" cy="11" r="0.8" fill="currentColor" />
+                    </svg>
+                    Theory
+                </button>
+                <button id="defaults-btn" class="btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M5 8H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M8 5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    Load Defaults
+                </button>
+            </div>
+        </header>
+
+        <!-- Info Bar (Excel-like header row) -->
+        <div class="excel-header-bar">
+            <div class="excel-header-cell">
+                <span class="excel-header-label">Library</span>
+                <span class="excel-header-value">{{ lib }}</span>
+            </div>
+            <div class="excel-header-cell">
+                <span class="excel-header-label">Biological Model</span>
+                <span class="excel-header-value">{{ model }}</span>
+            </div>
+            <div class="excel-header-cell">
+                <span class="excel-header-label">Influent Model</span>
+                <span class="excel-header-value">{{ view }}</span>
+            </div>
+            <div class="excel-header-cell excel-header-cell--status">
+                <span class="excel-header-label">Status</span>
+                <span class="excel-header-value" id="status-tag">Ready</span>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════
+             EXCEL-LIKE 3-COLUMN LAYOUT
+             Columns B-E | Columns G-J | Columns M-P
+             ═══════════════════════════════════════════════ -->
+        <main class="excel-grid">
+
+            <!-- ── COLUMN 1: User Inputs (Excel cols B-E) ── -->
+            <section class="excel-panel excel-panel--inputs">
+                <div class="excel-panel-header excel-panel-header--blue">
+                    <h2>User Inputs</h2>
+                </div>
+                <div class="excel-col-headers">
+                    <span class="excel-col-header">B</span>
+                    <span class="excel-col-header">C</span>
+                    <span class="excel-col-header">D</span>
+                    <span class="excel-col-header">E</span>
+                </div>
+                <table class="excel-table" id="inputs-table">
+                    <thead>
+                        <tr>
+                            <th class="et-var">Variable</th>
+                            <th class="et-desc">Description</th>
+                            <th class="et-unit">Unit</th>
+                            <th class="et-val">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in sheet.sections.user_inputs %}
+                        {% if item.is_heading %}
+                        <tr class="et-section-row">
+                            <td colspan="4" class="et-section-label">{{ item.name }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td class="et-var">{{ item.name }}<span class="cell-ref">[{{ item.value_ref }}]</span></td>
+                            <td class="et-desc">{{ item.description }}</td>
+                            <td class="et-unit">{{ item.unit }}</td>
+                            <td class="et-val">
+                                <input type="number" step="any" class="excel-input value-input"
+                                    data-row="{{ item.row }}" data-ref="{{ item.value_ref }}"
+                                    data-name="{{ item.name }}"
+                                    value="{{ item.default_value if item.default_value != '' else '' }}"
+                                    placeholder="{{ item.default_value if item.default_value != '' else '—' }}">
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ── COLUMN 2: State Variables (Excel cols G-J) ── -->
+            <section class="excel-panel excel-panel--states">
+                <div class="excel-panel-header excel-panel-header--green">
+                    <h2>State Variables</h2>
+                </div>
+                <div class="excel-col-headers">
+                    <span class="excel-col-header">G</span>
+                    <span class="excel-col-header">H</span>
+                    <span class="excel-col-header">I</span>
+                    <span class="excel-col-header">J</span>
+                </div>
+                <table class="excel-table" id="state-table">
+                    <thead>
+                        <tr>
+                            <th class="et-var">Variable</th>
+                            <th class="et-desc">Description</th>
+                            <th class="et-unit">Unit</th>
+                            <th class="et-val">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in sheet.sections.state_variables %}
+                        {% if item.is_heading %}
+                        <tr class="et-section-row">
+                            <td colspan="4" class="et-section-label">{{ item.name }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td class="et-var">{{ item.name }}<span class="cell-ref">[{{ item.value_ref }}]</span></td>
+                            <td class="et-desc">{{ item.description }}</td>
+                            <td class="et-unit">{{ item.unit }}</td>
+                            <td class="et-val">
+                                <span class="state-value calculated-value has-formula" data-row="{{ item.row }}"
+                                    data-ref="{{ item.value_ref }}" data-name="{{ item.name }}">
+                                    <span class="value-display">{{ item.default_value if item.default_value != '' else
+                                        '0' }}</span>
+                                </span>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ── COLUMN 3: Composite Variables (Excel cols M-P) ── -->
+            {% if sheet.sections.composite_variables %}
+            <section class="excel-panel excel-panel--composites">
+                <div class="excel-panel-header excel-panel-header--orange">
+                    <h2>Composite Variables</h2>
+                </div>
+                <div class="excel-col-headers">
+                    <span class="excel-col-header">M</span>
+                    <span class="excel-col-header">N</span>
+                    <span class="excel-col-header">O</span>
+                    <span class="excel-col-header">P</span>
+                </div>
+                <table class="excel-table" id="composite-table">
+                    <thead>
+                        <tr>
+                            <th class="et-var">Variable</th>
+                            <th class="et-desc">Description</th>
+                            <th class="et-unit">Unit</th>
+                            <th class="et-val">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in sheet.sections.composite_variables %}
+                        {% if item.is_heading %}
+                        <tr class="et-section-row">
+                            <td colspan="4" class="et-section-label">{{ item.name }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td class="et-var">{{ item.name }}<span class="cell-ref">[{{ item.value_ref }}]</span></td>
+                            <td class="et-desc">{{ item.description }}</td>
+                            <td class="et-unit">{{ item.unit }}</td>
+                            <td class="et-val">
+                                <span class="state-value calculated-value has-formula" data-row="{{ item.row }}"
+                                    data-ref="{{ item.value_ref }}" data-name="{{ item.name }}">
+                                    <span class="value-display value-display--composite">{{ item.default_value if
+                                        item.default_value != '' else '0' }}</span>
+                                </span>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+            {% endif %}
+        </main>
+
+        <!-- Hidden data for JavaScript -->
+        <div id="sheet-metadata" data-sheet-name="{{ sheet_name }}" data-lib="{{ lib }}" data-model="{{ model }}"
+            data-view="{{ view }}" style="display:none;"></div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Influent Advisor v1.0 &mdash; {{ sheet_name }}</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
