@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Influent Advisor - Wastewater Influent Characterization</title>
+    <title>Influent Advisor — Academic Prototype</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -14,7 +14,7 @@
         <header class="app-header">
             <div class="header-brand">
                 <h1>Influent Advisor</h1>
-                <span class="header-subtitle">Wastewater Influent Characterization Tool v1.0</span>
+                <span class="header-subtitle">Academic Wastewater Characterization Prototype v1.0</span>
             </div>
         </header>
 
@@ -31,11 +31,14 @@
                         </svg>
                     </div>
                 </div>
-                <h2 class="intro-title">Influent Wastewater Characterization</h2>
+                <h2 class="intro-title">Academic Prototype for Wastewater Influent Characterization</h2>
                 <p class="intro-description">
                     Convert raw wastewater parameters (COD, BOD, TSS, N, P) into
                     model-specific state variables for activated sludge simulations
                     (IWA ASM1, ASM2d, ASM3 and related models).
+                </p>
+                <p class="intro-description" style="font-size:0.9em; color:#5f6368; margin-top:0.2rem;">
+                    Educational and experimental tool developed as part of a university project.
                 </p>
                 <div class="intro-instructions">
                     <h3>How to use</h3>
@@ -124,6 +127,7 @@
 
         <!-- Footer -->
         <footer class="app-footer">
+            <p class="footer-disclaimer"><strong>Academic prototype &mdash; not intended for professional engineering design.</strong></p>
             <p class="footer-disclaimer"><strong>Disclaimer:</strong> Independent, unofficial tool for educational
                 and reference purposes only. Implements wastewater influent characterization based on published
                 IWA Activated Sludge Models. Not affiliated with, endorsed by, or associated with
