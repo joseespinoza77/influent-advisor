@@ -1,6 +1,6 @@
 """
 Influent Advisor - Web Application
-Migrated from Influent_Advisor_v2.xlsm (VBA) to Flask Web App
+Wastewater influent characterization tool based on IWA Activated Sludge Models
 """
 import json
 import os

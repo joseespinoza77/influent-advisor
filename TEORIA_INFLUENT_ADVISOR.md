@@ -628,9 +628,9 @@ Los rangos de formateo varían entre modelos. Por ejemplo, el modelo Reduced tie
 - **WEST** (DHI): Simulador de tratamiento de aguas
 - **AQUASIM** (EAWAG): Software de simulación y análisis de sistemas acuáticos
 
-### 13.3 Fuentes Utilizadas de NotebookLM "Aguas"
+### 13.3 Fuentes Complementarias
 
-El contenido de este documento se complementó con el análisis de las siguientes fuentes del notebook **"Aguas"** de NotebookLM (59 fuentes), **"Libros_Aguas"** (5 fuentes) y **"Dynamic Modeling of Wastewater Treatment Systems"** (2 fuentes):
+El contenido de este documento se complementó con el análisis de las siguientes fuentes adicionales:
 
 - Tejero & Ninaki — *Introducción a la Ingeniería Sanitaria y Ambiental*
 - Metcalf & Eddy — *Wastewater Engineering* (5th ed.)

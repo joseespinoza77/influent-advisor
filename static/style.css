@@ -1,5 +1,5 @@
 /* ============================================================
-   Influent Advisor - GPS-X Influent Characterization Tool
+   Influent Advisor - Wastewater Influent Characterization Tool
    Professional stylesheet
    ============================================================ */
 
@@ -1089,4 +1089,28 @@ body {
     .et-val {
         width: 70%;
     }
+}
+
+/* --- Footer Disclaimer & Credits --- */
+.footer-disclaimer {
+    font-size: 0.72rem;
+    color: #80868b;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0.3rem auto;
+}
+
+.footer-credit {
+    font-size: 0.82rem;
+    color: #5f6368;
+    margin: 0.6rem auto 0.2rem;
+}
+
+.footer-credit a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.footer-credit a:hover {
+    text-decoration: underline;
 }
