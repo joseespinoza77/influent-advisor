@@ -29,7 +29,7 @@ This project originated in the context of a university course and consists of an
 
 A live demo is available at:
 
-**<https://influentlab.onrender.com/>**
+**<https://influent-lab.onrender.com/>**
 
 > Note: The application is hosted on a free Render tier and may take a few seconds to wake up on the first request.
 
