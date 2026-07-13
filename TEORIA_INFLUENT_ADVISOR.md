@@ -1,8 +1,8 @@
-# Teoría de la Aplicación: Influent Advisor — Caracterización de Influentes para Modelos ASM (Activated Sludge Models)
+# Teoría de la Aplicación: InfluentLab — Caracterización de Influentes para Modelos ASM (Activated Sludge Models)
 
 ## 1. Introducción y Propósito
 
-**Influent Advisor** es una herramienta de caracterización de aguas residuales (influente) diseñada para convertir parámetros de laboratorio convencionales en **variables de estado** específicas de modelo, compatibles con simuladores de procesos de fangos activados como **GPS-X**, **SIMBA**, **ASIM** o **WEST**.
+**InfluentLab** es una herramienta de caracterización de aguas residuales (influente) diseñada para convertir parámetros de laboratorio convencionales en **variables de estado** específicas de modelo, compatibles con simuladores de procesos de fangos activados como **GPS-X**, **SIMBA**, **ASIM** o **WEST**.
 
 El propósito fundamental es aplicar los principios de **fraccionamiento de DQO (COD fractionation)** y **especiación de nitrógeno** establecidos por los modelos ASM1, ASM2d, ASM3, Mantis y Reduced de la familia **Activated Sludge Models (IWA)** .
 
@@ -36,7 +36,7 @@ El marco teórico clasifica los constituyentes del agua residual según su **est
 | **X** | Particulado | Xi, Xs, Xbh |
 | **T** | Total (S + C + X) | TCOD, TKN |
 
-### 2.4 Modelos Soportados en Influent Advisor
+### 2.4 Modelos Soportados en InfluentLab
 
 | Modelo | Descripción | Variables de Estado | Procesos | Biblioteca |
 |--------|-------------|-------------------|----------|------------|
@@ -224,7 +224,7 @@ El nitrógeno orgánico se subdivide a su vez en:
 
 Cada una de estas fracciones se subdivide en porciones **biodegradables** y **no biodegradables**. La fracción particulada biodegradable (Xnd) requiere una **reacción de hidrólisis** para ser convertida a formas solubles, y por lo tanto se elimina más lentamente que las formas solubles.
 
-### 5.2 Componentes de Nitrógeno en Influent Advisor
+### 5.2 Componentes de Nitrógeno en InfluentLab
 
 | Símbolo | Nombre | Descripción | Unidad |
 |---------|--------|-------------|--------|
@@ -272,7 +272,7 @@ Cada una de estas fracciones se subdivide en porciones **biodegradables** y **no
 ASM1 fue el primer modelo integral de la IWA y sentó las bases para todos los modelos posteriores:
 
 - **Propósito**: Eliminación biológica de Carbono (C) y Nitrógeno (N)
-- **Componentes**: 13 variables de estado (Si, Ss, Xi, Xs, Xbh, Xba, Xp — no se usa en Influent Advisor — , So, Sno, Snh, Snd, Xnd, Salk)
+- **Componentes**: 13 variables de estado (Si, Ss, Xi, Xs, Xbh, Xba, Xp — no se usa en InfluentLab — , So, Sno, Snh, Snd, Xnd, Salk)
 - **Procesos**: 8 procesos (crecimiento aeróbico heterótrofo, crecimiento anóxico heterótrofo, crecimiento aeróbico autótrofo, decaimiento heterótrofo, decaimiento autótrofo, hidrólisis de Xs, hidrólisis de Xnd, amonificación de Snd)
 - **Cinética**: Crecimiento con Monod, hidrólisis con cinética de saturación
 - **Limitación**: No modela eliminación de fósforo
@@ -356,7 +356,7 @@ Los laboratorios de EDAR miden parámetros convencionales (DBO5, DQO, TKN, NH4, 
 
 ### 8.2 Las 4 Vistas como Puentes
 
-Cada vista en Influent Advisor representa una estrategia diferente para cruzar este puente:
+Cada vista en InfluentLab representa una estrategia diferente para cruzar este puente:
 
 1. **States**: El usuario ya conoce las fracciones → entrada directa de Si, Ss, Xi, Xs, etc.
 2. **BODbased**: El usuario tiene DBO5, DQO, TKN → el sistema estima las fracciones usando relaciones como bCOD/BOD5=1.69 y fbod=0.66
@@ -377,7 +377,7 @@ LABORATORIO:
   • Fracciones específicas de DQO
         │
         ▼
-  INFLUENT ADVISOR:
+  INFLUENTLAB:
   User Inputs (col E) → State Variables (col J) → Composite Variables (col P)
         │
         ▼

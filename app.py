@@ -1,5 +1,5 @@
 """
-Influent Advisor - Web Application
+InfluentLab - Web Application
 Wastewater influent characterization tool based on IWA Activated Sludge Models
 """
 import json
@@ -174,7 +174,7 @@ if __name__ == '__main__':
     host = '0.0.0.0' if _on_render else '127.0.0.1'
 
     print(f"\n  {'='*50}")
-    print(f"  Influent Advisor v1.0")
+    print(f"  InfluentLab v1.0")
     print(f"  {'='*50}")
     print(f"  Server: http://{host}:{port}")
     print(f"  Press Ctrl+C to stop")

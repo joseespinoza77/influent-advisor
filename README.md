@@ -1,6 +1,6 @@
-# Influent Advisor — Academic Web Prototype
+# InfluentLab — Academic Web Prototype
 
-Influent Advisor is an academic and educational prototype designed to convert conventional wastewater characterization parameters — such as COD, BOD, TSS, nitrogen and phosphorus — into model-specific state variables used by IWA Activated Sludge Models (ASM).
+InfluentLab is an academic and educational prototype designed to convert conventional wastewater characterization parameters — such as COD, BOD, TSS, nitrogen and phosphorus — into model-specific state variables used by IWA Activated Sludge Models (ASM).
 
 This project originated in the context of a university course and consists of an experimental migration from an Excel/VBA-based tool to a web application, exploring the digitalization of technical tools used in environmental engineering.
 
@@ -29,7 +29,7 @@ This project originated in the context of a university course and consists of an
 
 A live demo is available at:
 
-**<https://influent-advisor.onrender.com/>**
+**<https://influentlab.onrender.com/>**
 
 > Note: The application is hosted on a free Render tier and may take a few seconds to wake up on the first request.
 
@@ -55,8 +55,8 @@ The migrated formulas can be compared against cached values from the original Ex
 ## Running Locally
 
 ```bash
-git clone https://github.com/joseespinoza77/influent-advisor.git
-cd influent-advisor
+git clone https://github.com/joseespinoza77/InfluentLab.git
+cd InfluentLab
 pip install -r requirements.txt
 python app.py
 ```

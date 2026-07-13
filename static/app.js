@@ -1,5 +1,5 @@
 /* ============================================================
-   Influent Advisor - JavaScript Calculation Engine
+   InfluentLab - JavaScript Calculation Engine
    Full Excel formula evaluator migrated from VBA
    ============================================================ */
 
