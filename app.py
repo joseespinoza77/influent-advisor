@@ -168,12 +168,23 @@ def get_defaults():
 
 
 if __name__ == '__main__':
-    port = 5000
+    import os as _os
+    _on_render = 'RENDER' in _os.environ
+    port = int(_os.environ.get('PORT', 5000))
+    host = '0.0.0.0' if _on_render else '127.0.0.1'
+
     print(f"\n  {'='*50}")
     print(f"  Influent Advisor v1.0")
     print(f"  {'='*50}")
-    print(f"  Server: http://127.0.0.1:{port}")
+    print(f"  Server: http://{host}:{port}")
     print(f"  Press Ctrl+C to stop")
     print(f"  {'='*50}\n")
-    webbrowser.open(f'http://127.0.0.1:{port}')
-    app.run(host='127.0.0.1', port=port, debug=False)
+
+    if not _on_render:
+        webbrowser.open(f'http://127.0.0.1:{port}')
+
+    if _on_render:
+        from waitress import serve
+        serve(app, host=host, port=port)
+    else:
+        app.run(host=host, port=port, debug=False)
