@@ -55,8 +55,8 @@ The migrated formulas can be compared against cached values from the original Ex
 ## Running Locally
 
 ```bash
-git clone https://github.com/joseespinoza77/InfluentLab.git
-cd InfluentLab
+git clone https://github.com/joseespinoza77/Influent-Lab.git
+cd Influent-Lab
 pip install -r requirements.txt
 python app.py
 ```
